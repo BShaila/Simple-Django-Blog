@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+{% block title %}Edit Profile | {{ block.super }}{% endblock %}
+{% block content %}
+<br>
+<div class="card">
+    <h5 class="card-header primary-color white-text text-center py-4">
+        <strong style="color:blue;">EDIT PROFILE</strong>
+    </h5>
+<div class="card-body px-lg-5 pt-0">
+<br>
+
+<form action="." method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    
+    <input type="submit" value="Save Changes" class="btn btn-outline-success">
+</form>
+</div>
+</div>
+{% endblock %}

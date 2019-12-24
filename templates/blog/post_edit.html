@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{ post.title }}|Edit{% endblock %}
+{% block content %}
+<br>
+<div class="card">
+    <h5 class="card-header primary-color white-text text-center py-4">
+        <strong style="color:blue;">POST EDIT</strong>
+    </h5>
+<div class="card-body px-lg-5 pt-0">
+<br>
+
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ formset.management_form }}
+    {% for f in formset %}
+        {{ f.as_p }}
+    {% endfor %}
+    <input type="submit" value="Update" class="btn btn-outline-success">
+</form>
+
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<br>
+<div class="card">
+    <h5 class="card-header primary-color white-text text-center py-4">
+        <strong style="color:blue;">CREATE POST</strong>
+    </h5>
+<div class="card-body px-lg-5 pt-0">
+<br>
+
+
+
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ formset.as_table }}
+    <br>
+    <br>
+    <input type="submit" value="Create" class="btn btn-info">
+</form>
+
+
+</div>
+</div>
+{% endblock %}

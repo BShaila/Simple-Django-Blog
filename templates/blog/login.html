@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<br>
+<div class="card">
+    <h5 class="card-header primary-color white-text text-center py-4">
+        <strong style="color:blue;">Login</strong>
+    </h5>
+<div class="card-body px-lg-5 pt-0">
+<br>
+<form method="POST" class="text-center" style="color: #757575;">
+
+    {% csrf_token %}
+    
+    {{ form.as_p }}
+    <small>
+        <a href="{% url 'register' %}">Register</a> | 
+        <a href="{% url 'password_reset' %}">Forgotten Your Password?</a>
+        <br>
+    </small>
+    <br>
+
+    <input type="submit" value="Login" class="btn btn-outline-success">
+    
+    <p><br>-- OR --</p>
+    <a href="{% url 'social:begin' 'github' %}">
+        <button type="button" name="button" class="btn btn-primary">Github</button>
+    </a>
+    <a href="{% url 'social:begin' 'google-oauth2' %}">
+        <button type="button" name="button" class="btn btn-danger">Google+</button>
+    </a>
+
+</form>
+</div>
+</div>
+{% endblock %}
